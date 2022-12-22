@@ -8,6 +8,7 @@ const ChatProvider = ({ children }) => {
   const [user, setUser] = useState();
   const [notification, setNotification] = useState([]);
   const [chats, setChats] = useState([]);
+  const [loginedUsers, setLoginedUsers] = useState([]);
 
   const navigate = useNavigate();
 
@@ -17,7 +18,7 @@ const ChatProvider = ({ children }) => {
     if (!userInfo) {
       navigate("/");
     }
-  }, [navigate]);
+  }, []);
 
   return (
     <ChatContext.Provider
@@ -30,6 +31,8 @@ const ChatProvider = ({ children }) => {
         setNotification,
         chats,
         setChats,
+        loginedUsers,
+        setLoginedUsers,
       }}>
       {children}
     </ChatContext.Provider>

@@ -21,6 +21,7 @@ import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
 const ENDPOINT = "http://localhost:8000";
+// "https://null-prose-production.up.railway.app"
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -127,7 +128,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       var timeDiff = timeNow - lastTypingTime;
 
       if (timeDiff >= timerLength && typing) {
-        socket.emit(" stop typing", selectedChat._id);
+        socket.emit("stop typing", selectedChat._id);
         setTyping(false);
       }
     }, timerLength);
@@ -226,17 +227,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
               onKeyDown={sendMessage}
               isRequired
               mt={3}>
-              {istyping ? (
+              {istyping && (
                 <div>
                   <Lottie
                     options={defaultOptions}
-                    // height={50}
                     width={70}
                     style={{ marginBottom: 15, marginLeft: 0 }}
                   />
                 </div>
-              ) : (
-                <></>
               )}
               <Input
                 variant='filled'
