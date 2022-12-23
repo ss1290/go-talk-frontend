@@ -20,7 +20,7 @@ import { io } from "socket.io-client";
 import Lottie from "react-lottie";
 import animationData from "../animations/typing.json";
 
-const ENDPOINT = "http://localhost:8000";
+const ENDPOINT = "https://go-talk-backend-production-be84.up.railway.app";
 // "https://null-prose-production.up.railway.app"
 var socket, selectedChatCompare;
 
